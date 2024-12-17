@@ -21,16 +21,16 @@ spec:
         - containerPort: 80
         resources:
           requests:
-            memory: MEM_MIN
-            cpu: CPU_MIN
+            memory: MEM-MIN
+            cpu: CPU-MIN
           limits:
-            memory: MEM_MAX
-            cpu: CPU_MAX
+            memory: MEM-MAX
+            cpu: CPU-MAX
         volumeMounts:
         - name: html-volume
           mountPath: /usr/share/nginx/html
       volumes:
       - name: html-volume
         configMap:
-          name: CONFIG_MAP_NAME
+          name: CONFIG-MAP-NAME
 
