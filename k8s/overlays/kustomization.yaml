@@ -1,0 +1,79 @@
+resources:
+  - ../base
+
+configMapGenerator:
+  - name: app-config
+    literals:
+      - NAME=simple-app
+      - CONFIG_MAP_NAME=html-config
+      - VERSION=1.0.0
+      - IMAGE=nginx
+      - MEM_MIN=128Mi
+      - MEM_MAX=256Mi
+      - CPU_MIN=100m
+      - CPU_MAX=500m
+
+vars:
+  - name: NAME
+    objref:
+      kind: ConfigMap
+      name: app-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.NAME
+
+  - name: CONFIG_MAP_NAME
+    objref:
+      kind: ConfigMap
+      name: app-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.CONFIG_MAP_NAME
+
+  - name: VERSION
+    objref:
+      kind: ConfigMap
+      name: app-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.VERSION
+
+  - name: IMAGE
+    objref:
+      kind: ConfigMap
+      name: app-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.IMAGE
+
+  - name: MEM_MIN
+    objref:
+      kind: ConfigMap
+      name: app-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.MEM_MIN
+
+  - name: MEM_MAX
+    objref:
+      kind: ConfigMap
+      name: app-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.MEM_MAX
+
+  - name: CPU_MIN
+    objref:
+      kind: ConfigMap
+      name: app-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.CPU_MIN
+
+  - name: CPU_MAX
+    objref:
+      kind: ConfigMap
+      name: app-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.CPU_MAX
