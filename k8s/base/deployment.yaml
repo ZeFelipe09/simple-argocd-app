@@ -1,36 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ${NAME}
+  name: NAME
   labels:
-    app: ${NAME}
+    app: NAME
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ${NAME}
+      app: NAME
   template:
     metadata:
       labels:
-        app: ${NAME}
+        app: NAME
     spec:
       containers:
-      - name: ${NAME}
-        image: ${IMAGE}:${VERSION}
+      - name: NAME
+        image: IMAGE:VERSION
         ports:
         - containerPort: 80
         resources:
           requests:
-            memory: ${MEM_MIN}
-            cpu: ${CPU_MIN}
+            memory: MEM_MIN
+            cpu: CPU_MIN
           limits:
-            memory: ${MEM_MAX}
-            cpu: ${CPU_MAX}
+            memory: MEM_MAX
+            cpu: CPU_MAX
         volumeMounts:
         - name: html-volume
           mountPath: /usr/share/nginx/html
       volumes:
       - name: html-volume
         configMap:
-          name: ${CONFIG_MAP_NAME}
+          name: CONFIG_MAP_NAME
 
