@@ -1,4 +1,16 @@
 resources:
+  - configMap.yaml
   - deployment.yaml
   - service.yaml
-  - configmap.yaml
+
+configMapGenerator:
+  - name: app-config
+    literals:
+      - NAME=simple-app
+      - CONFIG-MAP-NAME=html-config
+      - VERSION=1.0.0
+      - IMAGE=nginx
+      - MEM-MIN=128Mi
+      - MEM-MAX=256Mi
+      - CPU-MIN=100m
+      - CPU-MAX=500m
