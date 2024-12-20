@@ -10,3 +10,8 @@ resources:
 images:
 - name: simple-app
   newTag: 1.0.0
+
+configMapGenerator:
+  - name: config
+  literals:
+    - NAME=simple-app
