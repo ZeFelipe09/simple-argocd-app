@@ -8,5 +8,4 @@ labels:
 
 resources:
   - deployment.yaml
-  - service.yaml
   # Remover a referência ao service.yaml se ele não existir
