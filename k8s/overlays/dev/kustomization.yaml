@@ -1,0 +1,21 @@
+resources:
+  - ../../base
+
+replacements:
+  - source:
+      kind: ConfigMap
+      name: app-config
+      fieldPath: data.NAME
+    targets:
+      - select:
+          kind: Deployment
+        fieldPaths:
+          - metadata.name
+          - spec.selector.matchLabels.app
+          - spec.template.metadata.labels.app
+          - spec.template.spec.containers[0].name
+      - select:
+          kind: Service
+        fieldPaths:
+          - metadata.name
+          - spec.selector.app

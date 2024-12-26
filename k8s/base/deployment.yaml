@@ -1,57 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: NAME
+  name: $(NAME)
   labels:
-    app: NAME
+    app: $(NAME)
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: NAME
+      app: $(NAME)
   template:
     metadata:
       labels:
-        app: NAME
+        app: $(NAME)
     spec:
       containers:
-      - name: NAME
-        image: nginx:latest
-        ports:
-        - containerPort: 80
-        volumeMounts:
-        - name: html-volume
-          mountPath: /usr/share/nginx/html
+        - name: $(NAME)
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: html-volume
+              mountPath: /usr/share/nginx/html
       volumes:
-      - name: html-volume
-        configMap:
-          name: html-config
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: html-config
-data:
-  index.html: |
-    <html>
-      <head>
-        <title>Teste de ArgoCD</title>
-      </head>
-      <body>
-        <h1>Olá, Rei da Infra</h1>
-        <p>Agora você é um mestre Devops.</p>
-      </body>
-    </html>
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: simple-app-service
-spec:
-  selector:
-    app: NAME
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
+        - name: html-volume
+          configMap:
+            name: html-config
