@@ -43,15 +43,3 @@ data:
       </body>
     </html>
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: simple-app-service
-spec:
-  selector:
-    app: simple-app
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
