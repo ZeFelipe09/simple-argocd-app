@@ -1,0 +1,15 @@
+kind: Kustomization
+
+resources:
+  - ../base
+
+
+configMapGenerator:
+  - name: config
+    literals:
+      - NAME=simple-app
+
+
+transformers:
+  - ../transformers/config-replacements.yaml
+
