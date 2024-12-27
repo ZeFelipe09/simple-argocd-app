@@ -7,7 +7,7 @@ replacements:
   - path: "../app/deployment.yaml"
   - source:
       kind: ConfigMap
-      name: html-config
+      name: config
       fieldPath: data.NAME
     targets:
       - select:
