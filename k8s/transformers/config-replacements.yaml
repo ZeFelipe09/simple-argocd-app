@@ -4,7 +4,6 @@ metadata:
   name: patch-deployment-name
 
 replacements:
-  - path: "../app/deployment.yaml"
   - source:
       kind: ConfigMap
       name: config
