@@ -11,5 +11,5 @@ configMapGenerator:
 
 
 transformers:
-  - ../transformers/config-replacements.yaml
+  - ../transformers/
 
