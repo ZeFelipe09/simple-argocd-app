@@ -4,9 +4,10 @@ metadata:
   name: patch-deployment-name
 
 replacements:
+  - path: "../app/deployment.yaml"
   - source:
       kind: ConfigMap
-      name: config
+      name: html-config
       fieldPath: data.NAME
     targets:
       - select:
