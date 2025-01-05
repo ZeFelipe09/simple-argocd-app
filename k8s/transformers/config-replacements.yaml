@@ -14,5 +14,3 @@ replacements:
           name: simple-app
         fieldPaths:
           - metadata.name
-          - spec.template.metadata.labels.app
-          - spec.template.spec.containers.[name=simple-app].name
