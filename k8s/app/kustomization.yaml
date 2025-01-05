@@ -9,6 +9,7 @@ configMapGenerator:
     literals:
       - NAME=simple-app-2
   - name: html-config
+    behavior: replace
     files:
       - index.html
 
