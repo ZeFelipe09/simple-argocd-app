@@ -8,6 +8,9 @@ configMapGenerator:
   - name: config
     literals:
       - NAME=simple-app-2
+  - name: html-config
+    files:
+      - index.html
 
 
 transformers:
